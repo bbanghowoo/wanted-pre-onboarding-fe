@@ -1,8 +1,16 @@
 import React from 'react';
-import PreAssignmentGuide from './pages/PreAssignmentGuide';
+
+import AuthProvider from './contexts/AuthContext';
+import MainRoutes from './routes/MainRoutes';
 
 function App() {
-  return <PreAssignmentGuide />;
+  return (
+    <React.Fragment>
+      <AuthProvider>
+        <MainRoutes />
+      </AuthProvider>
+    </React.Fragment>
+  );
 }
 
 export default App;

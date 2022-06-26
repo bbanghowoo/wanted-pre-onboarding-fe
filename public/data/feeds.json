@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "userId": "김영호",
+      "feedImage": "https://source.unsplash.com/random/600x500",
+      "comments": [
+        { "id": 1, "userId": "김영호", "comment": "안녕하세요" },
+        { "id": 2, "userId": "홍길동", "comment": "화이팅" }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": "홍길동",
+      "feedImage": "https://source.unsplash.com/random/900x500",
+      "comments": [
+        { "id": 1, "userId": "아무개", "comment": "반가워요" },
+        { "id": 2, "userId": "홍길동", "comment": "힘내세요" }
+      ]
+    },
+    {
+      "id": 3,
+      "userId": "아무개",
+      "feedImage": "https://source.unsplash.com/random/700x1080",
+      "comments": [
+        { "id": 1, "userId": "김영호", "comment": "반가워요" },
+        { "id": 2, "userId": "홍길동", "comment": "안녕하세요" }
+      ]
+    }
+  ]
+}
