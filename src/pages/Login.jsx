@@ -32,29 +32,49 @@ const Login = () => {
     password: '!Test1234',
   };
 
+  const checkEmailRegEx = (email) => {
+    const emailRegEx = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+    const isEmailValid = emailRegEx.test(email);
+
+    return isEmailValid;
+  };
+
   const checkEmailValidation = () => {
     const enteredEmail = emailRef.current.value;
 
-    enteredEmail.length ? setIsEmailEntered(true) : setIsEmailEntered(false);
+    if (!enteredEmail.length) {
+      setIsEmailEntered(false);
+      return;
+    }
 
-    const emailRegEx = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    setIsEmailEntered(true);
 
-    emailRegEx.test(enteredEmail)
+    checkEmailRegEx(enteredEmail)
       ? setIsEmailValid(true)
       : setIsEmailValid(false);
+  };
+
+  const checkPasswordRegEx = (password) => {
+    const passwordRegEx =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+    const isPasswordValid = passwordRegEx.test(password);
+
+    return isPasswordValid;
   };
 
   const checkPasswordValidation = () => {
     const enteredPassword = passwordRef.current.value;
 
-    enteredPassword.length
-      ? setIsPasswordEntered(true)
-      : setIsPasswordEntered(false);
+    if (!enteredPassword.length) {
+      setIsPasswordEntered(false);
+      return;
+    }
 
-    const passwordRegEx =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    setIsPasswordEntered(true);
 
-    passwordRegEx.test(enteredPassword)
+    checkPasswordRegEx(enteredPassword)
       ? setIsPasswordValid(true)
       : setIsPasswordValid(false);
   };

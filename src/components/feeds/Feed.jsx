@@ -6,18 +6,12 @@ import Comments from './feed/Comments';
 const Feed = ({ feedData }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const img = new Image();
-  img.src = feedData.feedImage;
-  img.onload = function () {
+  const handleLoading = () => {
     setIsLoading(true);
   };
 
-  if (!isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <FeedContainer>
+    <FeedContainer isLoading={isLoading}>
       <FeedTop>
         <UserInformation>
           <UserImage />
@@ -25,7 +19,7 @@ const Feed = ({ feedData }) => {
         </UserInformation>
         <Icon src="/images/option.png" />
       </FeedTop>
-      <FeedImage src={feedData.feedImage} />
+      <FeedImage src={feedData.feedImage} onLoad={handleLoading} />
       <IconContainer>
         <div>
           <Icon src="/images/heart.png" />
@@ -49,6 +43,8 @@ const FeedContainer = styled.article`
   border-radius: 8px;
   margin-bottom: 12px;
   background-color: white;
+
+  display: ${({ isLoading }) => (isLoading ? 'block' : 'none')};
 
   @media screen and (max-width: 500px) {
     width: 100%;
